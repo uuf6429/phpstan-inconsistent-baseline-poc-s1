@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to protected property \$this\(Edit\)\:\:\$user_id\.$#'
+			identifier: property.protected
+			count: 1
+			path: application/controllers/account/access_tags/Edit.php
+
+		-
+			message: '#^Access to protected property \$this\(Edit\)\:\:\$user_id\.$#'
+			identifier: property.protected
+			count: 1
+			path: application/controllers/account/members/Edit.php

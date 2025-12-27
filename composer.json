@@ -1,0 +1,33 @@
+{
+  "name": "uuf6429/phpstan-inconsistent-baseline-poc",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Christian Sciberras",
+      "email": "christian@sciberras.me"
+    }
+  ],
+  "require": {
+    "php": "^7 || ^8",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "phpstan/phpstan": "^2.1"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "scripts": {
+    "dev": "php -S localhost:8000 index.php",
+    "lint": [
+      "Composer\\Config::disableProcessTimeout",
+      "vendor/bin/phpstan clear-result-cache",
+      "vendor/bin/phpstan --no-progress analyse"
+    ],
+    "baseline": [
+      "Composer\\Config::disableProcessTimeout",
+      "echo > phpstan-baseline.neon",
+      "vendor/bin/phpstan clear-result-cache",
+      "vendor/bin/phpstan --no-progress --generate-baseline --allow-empty-baseline analyse"
+    ]
+  }
+}

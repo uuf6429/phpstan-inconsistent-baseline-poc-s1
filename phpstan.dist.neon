@@ -1,0 +1,11 @@
+includes:
+    - phpstan.php
+    - phpstan-baseline.neon
+
+parameters:
+    level: 9
+    phpVersion: 70100
+    tmpDir: .phpstan-cache
+    paths:
+        - index.php
+        - application
