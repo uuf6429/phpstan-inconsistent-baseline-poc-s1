@@ -3,9 +3,9 @@
 return [
     'parameters' => [
         'parallel' => [
-            'jobSize' => 2,
+            'jobSize' => 1,
             'maximumNumberOfProcesses' => max((int)getenv('PROCESSES'), 1),
-            'minimumNumberOfJobsPerProcess' => max((int)getenv('PROCESSES'), 1),
+            'minimumNumberOfJobsPerProcess' => 1,
         ],
     ],
 ];
