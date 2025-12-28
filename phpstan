@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php declare (strict_types=1);
+
+Phar::loadPhar(__DIR__ . '/vendor/phpstan/phpstan/phpstan.phar', 'phpstan.phar');
+
+$contents = file_get_contents('phar://phpstan.phar/src/File/FileFinder.php');
+if (!str_contains($contents, 'sort($files);')) {
+    file_put_contents(
+        'phar://phpstan.phar/src/File/FileFinder.php',
+        str_replace(
+            'return new \PHPStan\File',
+            "sort(\$files);\n        return new \PHPStan\File",
+            $contents
+        )
+    );
+}
+
+require 'phar://phpstan.phar/bin/phpstan';

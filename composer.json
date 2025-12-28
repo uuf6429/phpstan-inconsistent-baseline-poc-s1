@@ -20,14 +20,14 @@
     "dev": "php -S localhost:8000 index.php",
     "lint": [
       "Composer\\Config::disableProcessTimeout",
-      "vendor/bin/phpstan clear-result-cache",
-      "vendor/bin/phpstan --no-progress --no-ansi --error-format=raw -vvv --debug analyse"
+      "php -dphar.readonly=0 phpstan clear-result-cache",
+      "php -dphar.readonly=0 phpstan --no-progress --no-ansi --error-format=raw -vvv --debug analyse"
     ],
     "baseline": [
       "Composer\\Config::disableProcessTimeout",
       "echo > phpstan-baseline.neon",
-      "vendor/bin/phpstan clear-result-cache",
-      "vendor/bin/phpstan --no-progress --generate-baseline --allow-empty-baseline analyse"
+      "php -dphar.readonly=0 phpstan clear-result-cache",
+      "php -dphar.readonly=0 phpstan --no-progress --generate-baseline --allow-empty-baseline analyse"
     ]
   }
 }
